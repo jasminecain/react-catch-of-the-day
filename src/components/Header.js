@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 const Header = (props) => {
   return (
     <header className="top">
@@ -17,6 +15,5 @@ const Header = (props) => {
     </header>
   )
 }
-
 
 export default Header;
