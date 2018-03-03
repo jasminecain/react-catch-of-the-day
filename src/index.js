@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 // import { Component } from 'react';  extends only Component - do not need React.Component
 
 
-// import './css/style.css';
+import './css/style.css';
 // import App from './components/App';
 
 import StorePicker from './components/StorePicker';
