@@ -6,7 +6,7 @@ import { render } from 'react-dom';
 
 
 import './css/style.css';
-// import App from './components/App';
+import App from './components/App';
 
 import StorePicker from './components/StorePicker';
 // import NotFound from './components/NotFound';
