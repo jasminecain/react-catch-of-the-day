@@ -1,18 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
+import StorePicker from './components/StorePicker';
+import App from './components/App';
+import Router from "./components/Router";
+import './css/style.css';
+
 // import { BrowserRouter } from 'react-router-dom';
 
 // import { Component } from 'react';  extends only Component - do not need React.Component
 
-
-import './css/style.css';
-import App from './components/App';
-
-import StorePicker from './components/StorePicker';
 // import NotFound from './components/NotFound';
 
-
-render(<StorePicker />, document.querySelector('#main'));
+render(<Router/>, document.querySelector('#main'));
 
 // const Root = () => {
 //   return(
