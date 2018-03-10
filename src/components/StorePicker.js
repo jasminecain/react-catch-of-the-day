@@ -42,8 +42,8 @@ class StorePicker extends Component {
 //   }
 // })
 
-StorePicker.contextTypes = {
-  // router: React.PropTypes
-}
+// StorePicker.contextTypes = {
+//   // router: React.PropTypes
+// }
 
 export default StorePicker;
