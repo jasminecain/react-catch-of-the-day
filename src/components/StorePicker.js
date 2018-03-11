@@ -17,7 +17,7 @@ class StorePicker extends Component {
   }
 
   render() {
-    { /* Can only return one parent element, comments must be above or inside element not directly after return */ }
+    // { /* Can only return one parent element, comments must be above or inside element not directly after return */ }
     return (
       <Fragment>
         <form className="store-selector" onSubmit={(e) => this.goToStore(e)}>
