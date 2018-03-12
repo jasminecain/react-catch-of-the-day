@@ -1,31 +1,42 @@
 import React, { Component } from 'react';
 
 class AddFishForm extends Component {
-  createFish(event) {
+  nameRef = React.createRef();
+  priceRef = React.createRef();
+  statusRef = React.createRef();
+  descRef = React.createRef();
+  imageRef = React.createRef();
+
+  createFish = event => {
+    // 1. stop the form from submitting
     event.preventDefault();
-    console.log('Gonna make some fish! ');
+    // console.log('Gonna make some fish! ');
+    console.log(this.nameRef.value.value);
     const fish = {
-      name: this.name.value,
-      price: this.price.value,
-      status: this.status.value,
-      desc: this.desc.value,
-      image: this.image.value,
-    }
-    console.log(fish);
-  }
+      name: this.nameRef.value.value,
+      price: parseFloat(this.priceRef.value.value),
+      status: this.statusRef.value.value,
+      desc: this.descRef.value.value,
+      image: this.imageRef.value.value,
+    };
+    this.props.addFish(fish);
+    // refresh the form
+    event.currentTarget.reset();
+  };
 
   render() {
     return (
-      <form className="fish-edit" onSubmit={(e) => this.createFish(e)}>
-        <input ref={(input) => this.name = input}type="text" placeholder="Fish Name" />
-        <input ref={(input) => this.price = input} type="text" placeholder="Fish Price" />
-        <select ref={(input) => this.status = input}>
+      <form className="fish-edit" onSubmit={this.createFish}>
+        <input name="name" ref={this.nameRef} type="text" placeholder="Name"/>
+        <input name="price" ref={this.priceRef} type="text" placeholder="Price"/>
+        <select name="status" ref={this.statusRef}>
           <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
         </select>
-        <textarea ref={(input) => this.desc = input}placeholder="Fish Desc" ></textarea>
-        <input ref={(input) => this.image = input}type="text" placeholder="Fish Image" />
-        <button type="submit">+ Add Item</button>
+
+        <textarea name="desc" ref={this.descRef} placeholder="Desc"/>
+        <input name="image" ref={this.imageRef} type="text" placeholder="Image" />
+        <button type="submit">+ Add Fish</button>
       </form>
     )
   }
