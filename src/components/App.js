@@ -20,9 +20,7 @@ class App extends Component {
   };
 
   loadSampleFishes = () => {
-    this.setState({
-      fishes: sampleFishes
-    });
+    this.setState({ fishes: sampleFishes });
   }
 
   render() {
