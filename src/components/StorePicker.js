@@ -13,18 +13,19 @@ class StorePicker extends Component {
     event.preventDefault();
     console.log('You Change the URL');
     // first grab text from input
-    const storeId = this.storeInput.value;
-    console.log(`Going to ${storeId}`);
+    const storeName = this.myInput.value.value;
+    console.log(`Going to ${storeName}`);
     // second transition from / to /store/:storeId
-    console.log(this.myInput);
-    this.context.router.transitionTo(`/store/${storeId}`)
+    console.log(this.myInput.value.value);
+    this.props.history.push(`/store/${storeName}`);
+    // this.context.router.transitionTo(`/store/${storeId}`)
   }
 
   render() {
     // { /* Can only return one parent element, comments must be above or inside element not directly after return */ }
     return (
       <Fragment>
-        <form className="store-selector" onSubmit={(e) => this.goToStore(e)}>
+        <form className="store-selector" onSubmit={this.goToStore}>
         {/* {this.goToStore.bind(this)}> */}
           <h2>Please Enter A Store</h2>
           <input
