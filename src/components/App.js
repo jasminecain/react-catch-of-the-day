@@ -19,11 +19,11 @@ class App extends Component {
     this.setState({ fishes });
   };
 
-  // loadSamples() {
-  //   this.setState({
-  //     fishes: sampleFishes
-  //   });
-  // }
+  loadSampleFishes = () => {
+    this.setState({
+      fishes: sampleFishes
+    });
+  }
 
   render() {
     return (
@@ -32,9 +32,9 @@ class App extends Component {
           <Header tagline="Fresh Seafood Market" />
         </div>
         <Order />
-        <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
+        <Inventory addFish={this.addFish} loadSampleFishes={this.loadSampleFishes} />
       </div>
-    )
+    );
   }
 }
 
