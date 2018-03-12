@@ -5,35 +5,25 @@ import Inventory from './Inventory';
 import sampleFishes from '../sample-fishes';
 
 class App extends Component {
-  constructor() {
-    super();
+  state = {
+    fishes: {},
+    order: {}
+  };
 
-    this.addFish = this.addFish.bind(this);
-    this.loadSamples = this.loadSamples.bind(this);
-
-    // getInitialState
-    this.state = {
-      fishes: {},
-      order: {}
-    };
-  }
-
-  addFish(fish) {
-    // update our state
-    const fishes = {...this.state.fishes};
-    // add in our new fish
-    const timestamp = Date.now();
-    fishes[`fish-${timestamp}`] = fish;
-    // set state
+  addFish = fish => {
+    // take a copy of existing state
+    const fishes = {...this.state.fihes };
+    // add new fish to that fishes variable
+    fishes[`fish${Date.now()}`] = fish;
+    // set the new fishes object to state
     this.setState({ fishes });
-    // same as ({ fishes: fishes })
-  }
+  };
 
-  loadSamples() {
-    this.setState({
-      fishes: sampleFishes
-    });
-  }
+  // loadSamples() {
+  //   this.setState({
+  //     fishes: sampleFishes
+  //   });
+  // }
 
   render() {
     return (
