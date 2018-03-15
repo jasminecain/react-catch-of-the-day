@@ -6,10 +6,10 @@ This project is built with React.
 A fish menu app with information on the fish catches of the day.
 
 ### Prerequisites
-Anaconda Python 3.5.4
+React 16.3.0
 
 ### Spin up
-```bash npm start```
+```npm start```
 
 ### Staging
 
