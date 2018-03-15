@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { formatPrice } from '../helpers';
 
 class Order extends Component {
+  renderOrder = (key) => {
+    return <li>{key}</li>;
+  }
   render() {
     const orderIds = Object.keys(this.props.order);
     const total = orderIds.reduce((prevTotal, key) => {
@@ -18,7 +21,7 @@ class Order extends Component {
       <div className="order-wrap">
         <h2>Order</h2>
         <ul>
-        {orderIds.map(key => <li>{key}</li>)}
+        {orderIds.map(this.renderOrder)}
         </ul>
         <div className="total">
           Total:
