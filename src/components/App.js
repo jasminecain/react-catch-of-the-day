@@ -19,6 +19,10 @@ class App extends Component {
     });
   }
 
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
+
   addFish = fish => {
     // take a copy of existing state
     const fishes = {...this.state.fihes };
