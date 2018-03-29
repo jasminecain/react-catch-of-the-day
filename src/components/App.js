@@ -76,6 +76,16 @@ class App extends Component {
     this.setState({ order });
   };
 
+  removeFromOrder = key => {
+    // take a copy of state
+    const order = { ...this.state.order };
+    // remove item from order
+    // not mirroring to firebase so can use delete
+    delete order[key];
+    // call this.setState to update our state object
+    this.setState({ order });
+  };
+
   render() {
     return (
       <div className="catch-of-the-day">
@@ -92,7 +102,11 @@ class App extends Component {
             ))}
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order
+          fishes={this.state.fishes}
+          order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
+        />
         <Inventory
           addFish={this.addFish}
           updatedFish={this.updatedFish}
