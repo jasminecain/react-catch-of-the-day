@@ -45,6 +45,24 @@ class App extends Component {
     this.setState({ fishes });
   };
 
+  deleteFish = (key) => {
+    // take a copy of state
+    const fishes = { ...this.state.fishes };
+    // update the state
+    fishes[key] = null;
+    // update state
+    this.setState({ fishes });
+  }
+
+  updatedFish = (key, updatedFish) => {
+    // take a copy of the current state
+    const fishes = { ...this.state.fishes };
+    // update that state
+    fishes[key] = updatedFish;
+    // set that to state
+    this.setState({ fishes });
+  };
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
   };
@@ -55,6 +73,16 @@ class App extends Component {
     // either add to order, or update number in our order
     order[key] = order[key] + 1 || 1;
     // call setState to update our state object
+    this.setState({ order });
+  };
+
+  removeFromOrder = key => {
+    // take a copy of state
+    const order = { ...this.state.order };
+    // remove item from order
+    // not mirroring to firebase so can use delete
+    delete order[key];
+    // call this.setState to update our state object
     this.setState({ order });
   };
 
@@ -74,8 +102,18 @@ class App extends Component {
             ))}
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} />
-        <Inventory addFish={this.addFish} loadSampleFishes={this.loadSampleFishes} />
+        <Order
+          fishes={this.state.fishes}
+          order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
+        />
+        <Inventory
+          addFish={this.addFish}
+          updatedFish={this.updatedFish}
+          deleteFish={this.deleteFish}
+          loadSampleFishes={this.loadSampleFishes}
+          fishes={this.state.fishes}
+        />
       </div>
     );
   }
