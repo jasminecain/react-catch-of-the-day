@@ -31,9 +31,12 @@ class Order extends Component {
       timeout={{ enter: 500, exit: 500 }}
       >
         <li key={key}>
-          {count} lbs {fish.name}
-          {formatPrice(count * fish.price)}
-          <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
+          <span>
+            <span>{count}</span>
+            lbs {fish.name}
+            {formatPrice(count * fish.price)}
+            <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
+          </span>
         </li>
       </CSSTransition>
     );
