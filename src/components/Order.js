@@ -32,7 +32,15 @@ class Order extends Component {
       >
         <li key={key}>
           <span>
-            <span>{count}</span>
+            <TransitionGroup component="span" className="count">
+              <CSSTransition
+                classNames="count"
+                key={count}
+                timeout={{ enter: 5000, exit: 5000 }}
+              >
+                <span>{count}</span>
+              </CSSTransition>
+            </TransitionGroup>
             lbs {fish.name}
             {formatPrice(count * fish.price)}
             <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
